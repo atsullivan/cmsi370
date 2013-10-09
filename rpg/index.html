@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="rpg.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <p class="lead text-info">
+          List of Characters
+        </p>
+        <small>
+          Choose a character from the list below, then click the appropriate button.
+          <em>Have fun!!!</em>
+        </small>
+      </div>
+      <div class="row">
+        <div class="col-md-8">(placeholder for list of characters)</div>
+        <div class="col-md-4">
+          <div class="row">
+            <button type="button" class="btn btn-success btn-lg btn-block">Create</button>
+          </div>
+          <div class="row">
+            <button type="button" class="btn btn-info btn-lg btn-block">Edit</button>
+          </div>
+          <div class="row">
+            <a id="delete-button" href="#" class="btn btn-lg btn-danger btn-block" data-toggle="popover"
+                data-content="If you delete a character, he or she is gone forever."
+                data-original-title="Deletion Warning">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Code specific to our RPG user interface. -->
+    <script src="rpg.js"></script>
+  </body>
+</html>
