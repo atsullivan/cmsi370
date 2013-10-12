@@ -21,22 +21,72 @@
         </small>
       </div>
       <div class="row">
-        <div class="col-md-8">(placeholder for list of characters)</div>
+        <div class="col-md-8">
+          <select multiple class="form-control">
+            <option>Conan</option>
+            <option>Buster</option>
+            <option>Nigel Thornberry</option>
+            <option>Eddard Stark</option>
+            <option>Satan</option>
+          </select>
+        </div>
         <div class="col-md-4">
           <div class="row">
-            <button type="button" class="btn btn-success btn-lg btn-block">Create</button>
+            <a id="create-button" data-toggle="modal" href="#createModal" class="btn btn-lg btn-success btn-block">Create</a>
           </div>
           <div class="row">
-            <button type="button" class="btn btn-info btn-lg btn-block">Edit</button>
+            <a class="btn btn-info btn-lg btn-block" href="character.html">Edit</a>
           </div>
           <div class="row">
-            <a id="delete-button" href="#" class="btn btn-lg btn-danger btn-block" data-toggle="popover"
-                data-content="If you delete a character, he or she is gone forever."
-                data-original-title="Deletion Warning">Delete</a>
+            <a id="delete-button" data-toggle="modal" href="#deleteModal" class="btn btn-lg btn-danger btn-block">Delete</a>
           </div>
         </div>
       </div>
     </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Are you sure that you want to delete this character?</h4>
+        </div>
+        <div class="modal-body">
+          Deleting a character is permanent and <strong>cannot be undone</strong>.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Don't Delete</button>
+          <button id="confirm-delete-button" type="button" class="btn btn-danger">Delete Character</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Create Character</h4>
+        </div>
+        <div class="modal-body">
+          <p>Please select the desired information to create your character.</p>
+
+          <select class="form-control">
+            <option>Fighter</option>
+            <option>Wizard</option>
+            <option>Thief</option>
+            <option>Ranger</option>
+            <option>Demon</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button id="confirm-delete-button" type="button" class="btn btn-success">Create Character</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//code.jquery.com/jquery.js"></script>

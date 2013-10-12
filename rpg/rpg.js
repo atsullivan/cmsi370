@@ -1,4 +1,11 @@
 // Big things have small beginnings...
 $(function () {
-    $("#delete-button").popover({ placement: 'left' });
+
+    $("#confirm-delete-button").click(function () {
+        console.log("Delete confirmed!!!!!");
+
+        // Now we dismiss the dialog.
+        $('#deleteModal').modal('hide');
+    });
+
 });
