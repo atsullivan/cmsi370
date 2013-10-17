@@ -10,16 +10,7 @@
     <link rel="stylesheet" href="rpg.css">
   </head>
   <body>
-    
-	<!-- Nav Pills --
-	<ul class="nav nav-pills nav-justified">
-    	<li class = "disabled"><a href="#">GAME TITLE</a></li>
-    	<li><a href="#"> <span class="glyphicon glyphicon-home"></span> Home</a></li>
- 		<li class ="active"><a href="#"> <span class="glyphicon glyphicon-edit"></span> Character Creator</a></li>
- 		<li><a href="#"> <span class="glyphicon glyphicon-user"></span> Profile</a></li>
- 		<li><a href="#"> <span class="glyphicon glyphicon-screenshot"></span> Game</a></li>
-	</ul>-->
-	
+ 
 	<nav class="navbar navbar-default navbar-inverse" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -67,33 +58,12 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 	
-	  
-	  
-	  
-	  <button type="button" class="btn btn-primary btn-sm btn-block">
-            	<span class="glyphicon glyphicon-plus"></span> New
-      </button>
-      <button type="button" class="btn btn-primary btn-sm btn-block">
-            	<span class="glyphicon glyphicon-edit"></span> Edit
-      </button>
-      <button type="button" class="btn btn-primary btn-sm btn-block">
-            	<span class="glyphicon glyphicon-floppy-disk"></span> Save
-      </button>
-      <a id="delete-button" href="#" class="btn btn-sm btn-primary btn-block" data-toggle="popover" data-placement="bottom"
-                data-content="If you delete a character, he or she is gone forever."
-                data-original-title="Deletion Warning"> <span class="glyphicon glyphicon-remove"></span> Delete</a>
-      
-            
-            
-            
-            
-	  
 	  <h4 class="text-muted text-center">
           	Character Progress
       </h4>
 	  <div class="progress progress-striped active">
-  		<div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-    		<span class="sr-only">60% Complete</span>
+  		<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;">
+    		<span class="sr-only">33% Complete</span>
   		</div>
 	  </div>	  
 	  
@@ -101,16 +71,10 @@
 	  <div class="page-header">
   		<h1 class = "text-primary">Character Creator <small>Choose attributes</small></h1>
 	  </div>
-	  
-	  
-	  
-   
+ 
     <div class="container">
       <div class="row">
-        <!--<p class="lead text-info">
-          <h1 class="text-primary text-left"> Character Creator </h1>
-        </p>-->
-        
+        <div class="col-md-8">        
         <div class="panel panel-primary">
   			<div class="panel-heading">
     			<h3 class="panel-title">Choose Gender</h3>
@@ -144,15 +108,21 @@
 				</div>
   			</div>
 		</div>  
-		
-				
-  		
-  		
-  		
-  		
-  		
+		<div class="panel panel-primary">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Choose Skill</h3>
+  			</div>
+  			<div class="panel-body">
+    			<div class="input-group">
+  					<button type="button" class="btn btn-default">Stealth</button>
+    			    <button type="button" class="btn btn-default">Strength</button>
+    			    <button type="button" class="btn btn-default">Accuracy</button>
+    				<button type="button" class="btn btn-default">Agility</button>
+    				<button type="button" class="btn btn-default">Persuasion</button>
+				</div>
+  			</div>
+		</div> 
       </div>
-      <div class="row">
         <div class="col-md-4">
           <div class="row">
             <button type="button" class="btn btn-primary btn-lg btn-block">
@@ -170,13 +140,12 @@
             </button>
           </div>
           <div class="row">
-            <a id="delete-button" href="#" class="btn btn-lg btn-primary btn-block" data-toggle="popover"
+            <a id="delete-button" href="#" class= "btn btn-lg btn-primary btn-block" data-toggle="popover" data-placement="bottom"
                 data-content="If you delete a character, he or she is gone forever."
                 data-original-title="Deletion Warning"> <span class="glyphicon glyphicon-remove"></span> Delete</a>
           </div> 
         </div>
       </div>
-    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//code.jquery.com/jquery.js"></script>
