@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+  Role-playing game mockup with Ajax demo.  Original user interface mockup by Ed Bramanti.
+-->
+<html>
+  <head>
+    <title>Skyrim Character Creator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="http://images4.wikia.nocookie.net/__cb62351/elderscrolls/images/6/64/Favicon.ico"/>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="rpg.css">
+    <div class="btn-group btn-help"><a id="help-button" data-toggle="modal" href="#helpModal"
+        class="btn btn-lg"><span class="glyphicon glyphicon-info-sign"></span>
+      <strong>Help</strong></a></div>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row topOfPage text-center">
+        <h1>Character Creator</h1>
+        <div class="btn-group btn-group-justified">
+          <a id="create-button" data-toggle="modal" href="#createModal"
+              class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-pencil"></span>
+            Create Character</a>
+          <!-- The hash data approach here will have to be changed with thie Ajax version. -->
+          <a class="btn btn-info btn-lg btn-block"
+              href="character.html#EditPlaceHolder!#Breton#Gender#Legit#Over 9000"><span
+              class="glyphicon glyphicon-edit"></span>
+            Edit Character</a>
+          <a id="delete-button" data-toggle="modal" href="#deleteModal"
+              class="btn btn-lg btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span>
+            Delete Character</a>
+          </div>
+      </div>
+      <table id="character-table" class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              <span class="glyphicon glyphicon-check"></span>
+            </th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Gender</th>
+            <th>Level</th>
+            <th>Money</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013, Edward Bramanti. All trademarks belong to their respective owners (in this case, Bethesda Softworks).</p>
+      </footer>
+    </div>
+
+    <!-- Delete Character Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Are you sure that you want to delete this character?</h4>
+          </div>
+          <div class="modal-body">
+            Deleting a character is permanent and <strong>cannot be undone</strong>.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Don't Delete</button>
+            <button id="confirm-delete-button" type="button" class="btn btn-danger">Delete Character</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Create Character Modal -->
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Create Character</h4>
+          </div>
+          <div class="modal-body">
+            <label for="Name">Name</label>
+            <input type="Name" class="form-control name" id="name" placeholder="Enter name of Dragonborn">
+            <label for="Race">Race</label>
+            <select class="form-control race">
+              <option>Select a Race</option>
+              <option>Nord</option>
+              <option>Imperial</option>
+              <option>Redguard</option>
+              <option>Breton</option>
+              <option>Argonian</option>
+              <option>Khajiit</option>
+              <option>Dunmer</option>
+              <option>Altmer</option>
+              <option>Bosmer</option>
+              <option>Orsimer</option>
+            </select>
+            <label for="Gender">Gender</label>
+            <select class="form-control gender">
+              <option>Select a Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            <label for="Skin-Tone">Skin Tone</label>
+            <select class="form-control skinTone">
+              <option>Select a Skin Tone</option>
+              <option>Light</option>
+              <option>Dark</option>
+            </select>
+            <label for="Weight">Weight</label>
+            <input type="text" class="form-control weight" placeholder="Text input">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancel</button>
+            <button id="confirm-create-button" type="button" class="btn btn-success">Create Character</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span> Help</h4>
+          </div>
+          <div class="modal-body">
+            <p>Welcome to the Skyrim Character Creator. To <strong>create a new character</strong>,
+              click the create character button. After entering in a <em>name, race, gender, skin
+              tone, and weight,</em> you will be able to play around with the character's inventory.</p>
+            <p>You are also allowed to have <strong>multiple characters</strong>. Create as many as
+              you would like, and this site will keep track of their skill stats and items.</p>
+            <p>To <strong>edit a character</strong>, you may either select the checkbox and click
+              "Edit Character" or click directly on the character's name. It will redirect you to their
+              skills and inventory page, with more detailed information on your current Dragonborn hero.</p>
+          <p>If one of your characters are growing old (Perhaps like "An arrow to the knee") and you
+            are losing interest in him/her, it may be time to part ways with your once-beloved hero.
+            To <strong>delete a character</strong>, check the box next to their name and click <em>delete</em>.
+            Don’t worry, either; <em><strong>we will make sure your character can be deleted only after
+            a confirmation page!</strong></em></p>
+          <p>I hope you enjoy the character creation suite! Fus ro Dah!</p>
+        </div>
+        <div class="modal-footer">
+          <button id="close-help-button" type="button" class="btn btn-primary">Thanks!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Code specific to my RPG user interface. -->
+    <script src="rpg.js"></script>
+  </body>
+</html>

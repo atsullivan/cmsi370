@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!--
+  Original user interface mockup by Ed Bramanti.
+-->
+<html>
+  <head>
+    <title>Character Creation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="http://images4.wikia.nocookie.net/__cb62351/elderscrolls/images/6/64/Favicon.ico"/>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="rpg.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row topOfPage">
+        <div class="col-md-6">
+          <a id="back-to-main-menu" href="index.html" class="btn btn-lg btn-left"><span
+              class="glyphicon glyphicon-circle-arrow-left"></span>
+            Back to Main Menu</a>
+          <a class="btn btn-lg" data-toggle="modal" href="#inventoryHelpModal"><span
+              class="glyphicon glyphicon-info-sign"></span>
+            <strong>Skills/Inventory Help</strong></a>
+          <h1>
+            <em>
+              <strong>
+              </strong>
+            </em>
+          </h1>
+          <p>
+            <strong>Race:</strong>
+            <span></span>
+            <strong>Gender:</strong>
+            <span></span>
+            <strong>Skin Tone:</strong>
+            <span></span>
+            <strong>Weight:<strong>
+            <span></span>
+          </p>
+
+          <table class="table table-borderless table-condensed table-hover">
+            <thead>
+              <tr>
+                <th>Skill</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Using "danger" for red, signifying attack skills. -->
+              <tr class="red">
+                <td>Archery</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="red">
+                <td>Heavy Armor</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="red">
+                <td>Block</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="red">
+                <td>Two-Handed</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="red">
+                <td>One-Handed</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="red">
+                <td>Smithing</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="green">
+                <td>Light Armor</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="green">
+                <td>Sneak</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="green">
+                <td>Lockpicking</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="green">
+                <td>Pickpocket</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="green">
+                <td>Speech</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="green">
+                <td>Alchemy</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="blue">
+                <td>Illusion</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="blue">
+                <td>Conjuration</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="blue">
+                <td>Destruction</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="blue">
+                <td>Restoration</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="blue">
+                <td>Alteration</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="blue">
+                <td>Enchanting</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column-md-6">
+          <div class="btn-group">
+            <a id="create-button" data-toggle="modal" href="#createItemModal"
+                class="btn btn-lg btn-success"><span class="glyphicon glyphicon-pencil"></span>
+              Create Item</a>
+            <a class="btn btn-info btn-lg" data-toggle="modal" href="#editItemModal"><span
+                class="glyphicon glyphicon-edit"></span>
+              Edit Item Attributes</a>
+            <a id="delete-button" data-toggle="modal" href="#deleteItemModal"
+                class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-trash"></span>
+              Delete Item</a>
+          </div>
+          <h1><strong><em>Inventory</em></strong></h1>
+          <p><strong>A list of <span></span>'s items.</strong></p>
+          <table class="table inventoryTable">
+            <thead>
+              <tr>
+                <th><span class="glyphicon glyphicon-check"></th>
+                <th>Item Name</th>
+                <th>Damage</th>
+                <th>Weight</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" value="0"></td>
+                <td>Iron Sword</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+                <td>9</td>
+                <td>25</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" value="1"></td>
+                <td>Steel Sword</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+                <td>10</td>
+                <td>45</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" value="2"></td>
+                <td>Orcish Sword</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+                <td>11</td>
+                <td>75</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" value="3"></td>
+                <td>Dwarven Sword</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+                <td>12</td>
+                <td>125</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" value="4"></td>
+                <td>Nord Hero Sword</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+                <td>9</td>
+                <td>135</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013, Edward Bramanti. All trademarks belong to their respective owners (in this case, Bethesda Softworks).</p>
+      </footer>
+    </div>
+
+    <!-- Create Item Modal -->
+    <div class="modal fade" id="createItemModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Create Item</h4>
+          </div>
+          <div class="modal-body">
+            <label for="Name">Name</label>
+            <input type="Name" class="form-control name" id="name" placeholder="Item">
+            <label for="Damage">Damage</label>
+            <input type="Damage" class="form-control name" id="damage" placeholder="Damage">
+            <label for="Weight">Weight</label>
+            <input type="Weight" class="form-control name" id="weight" placeholder="Weight"><label for="Value">Value</label>
+            <input type="Value" class="form-control name" id="value" placeholder="Value">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancel</button>
+            <button id="confirm-create-item-button" type="button" class="btn btn-success">Create Item</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Edit Item Modal -->
+    <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Item</h4>
+          </div>
+          <div class="modal-body">
+            <label for="Name">Name</label>
+            <input type="Name" class="form-control name" id="name" placeholder="Edit Item Name">
+            <label for="Damage">Damage</label>
+            <input type="Damage" class="form-control name" id="damage" placeholder="Edit Damage">
+            <label for="Weight">Weight</label>
+            <input type="Weight" class="form-control name" id="weight" placeholder="Edit Weight"><label for="Damage">Damage</label>
+            <input type="Value" class="form-control name" id="value" placeholder="Edit Value">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancel Edit</button>
+            <button id="confirm-edit-item-button" type="button" class="btn btn-success">Confirm Edit</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Delete Item Modal -->
+    <div class="modal fade" id="deleteItemModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Are you sure that you want to delete this item?</h4>
+          </div>
+          <div class="modal-body">
+            Deleting an item is permanent and <strong>cannot be undone</strong>.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Don't Delete</button>
+            <button id="confirm-delete-item-button" type="button" class="btn btn-danger">Delete Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="inventoryHelpModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span> Inventory and Skills Help</h4>
+          </div>
+          <div class="modal-body">
+            <p>Welcome to the Creator's Inventory and Skills page. To <strong>add a new item to the inventory</strong>, click the create item button. After entering in a <em>item name, damage, weight, and value,</em> the item will appear in your current character's inventory.</p>
+            <p>To <strong>edit an item</strong>, select the checkbox and click "Edit Item." This will allow you to change any aspect of the item in case you made a mistake!</p>
+            <p>Tired of having 10 Iron Swords? To <strong>delete an item</strong>, check the box next to their name and click <em>delete</em>. Don't worry, either; <em><strong>we will make sure your item can be deleted only after a confirmation page!</strong></em></p>
+            <p>I hope you enjoy the item and skills creation suite! (And please avoid committing crimes against Skyrim and her people!)</p>
+          </div>
+          <div class="modal-footer">
+            <button id="close-inventory-help-button" type="button" class="btn btn-primary">Thanks!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Code specific to my RPG user interface. -->
+    <script src="character.js"></script>
+  </body>
+</html>
