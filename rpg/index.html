@@ -28,7 +28,7 @@
     <ul class="nav navbar-nav">
       <li><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
       <li class = "active"><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-comment"></span>Messages<span class="badge"></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-comment"></span>Messages <span class="badge">6</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span>Online <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -46,6 +46,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-align-left"></span>Stats</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Info</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Options <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -58,100 +59,50 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 	
-	  <h4 class="text-muted text-center">
-          	Character Progress
-      </h4>
-	  <div class="progress progress-striped active">
-  		<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;">
-    		<span class="sr-only">33% Complete</span>
-  		</div>
-	  </div>	  
+	<!--FROM EXAMPLE-->
+	<div class="page-header">
+  		<h1 class = "text-primary">Character Library 
+  			<small>
+  				Choose to edit
+  			</small></h1>
+	</div>
+    
+    <a id="create-button" data-toggle="modal" href="#createModal"class="btn btn-lg btn-success btn-block">
+    	<span class="glyphicon glyphicon-plus">
+    	</span>Create Character
+    </a>
+	  
+	  <table id="character-table" class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              <span class="glyphicon glyphicon-check"></span>
+            </th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Gender</th>
+            <th>Level</th>
+            <th>Money</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <!-- -->
 	  
 	  
-	  <div class="page-header">
-  		<h1 class = "text-primary">Character Creator <small>Choose attributes</small></h1>
-	  </div>
- 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8">        
-        <div class="panel panel-primary">
-  			<div class="panel-heading">
-    			<h3 class="panel-title">Choose Gender</h3>
-  			</div>
-  			<div class="panel-body">
-    			<button type="button" class="btn btn-default">Male</button>
-    			<button type="button" class="btn btn-default">Female</button>
-  			</div>
-		</div> 
-		
-		<div class="panel panel-primary">
-  			<div class="panel-heading">
-    			<h3 class="panel-title">Choose Age</h3>
-  			</div>
-  			<div class="panel-body">
-    			<div class="input-group">
-  					<span class="input-group-addon">(1-100)</span>
-  					<input type="text" class="form-control" placeholder="Age">
-				</div>
-  			</div>
-		</div>  
-		
-		<div class="panel panel-primary">
-  			<div class="panel-heading">
-    			<h3 class="panel-title">Choose Name</h3>
-  			</div>
-  			<div class="panel-body">
-    			<div class="input-group">
-  					<span class="input-group-addon"></span>
-  					<input type="text" class="form-control" placeholder="Name">
-				</div>
-  			</div>
-		</div>  
-		<div class="panel panel-primary">
-  			<div class="panel-heading">
-    			<h3 class="panel-title">Choose Skill</span></button></h3>
-  			</div>
-  			<div class="panel-body">
-  					<div id="carousel-example-generic" class="carousel slide">
-  					<!-- Indicators -->
- 			 		<ol class="carousel-indicators">
-    					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    					<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-  					</ol>
 
-  					<!-- Wrapper for slides -->
-  					<div class="carousel-inner">
-    					<div class="item active">
-      						<img src="http://placehold.it/700x500" alt="First Slide">
-      						<div class="carousel-caption">Stealth</div>
-    					</div>
-    					<div class="item">
-      						<img src="http://placehold.it/700x500" alt="First Slide">
-      						<div class="carousel-caption">Strength</div>
-    					</div>
-    					<div class="item">
-      						<img src="http://placehold.it/700x500" alt="First Slide">
-      						<div class="carousel-caption">Agility</div>
-    					</div>
-    					<div class="item">
-      						<img src="http://placehold.it/700x500" alt="First Slide">
-      						<div class="carousel-caption">Accuracy</div>
-    					</div>
-  					</div>
-
-  					<!-- Controls -->
-  					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    					<span class="icon-prev"></span>
- 			 		</a>
-  					<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    					<span class="icon-next"></span>
-  					</a>
-			</div>	
-  		</div>
-  				
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	    				
 		</div> 
       </div>
         <div class="col-md-4">
@@ -178,49 +129,117 @@
         </div>
       </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Are you sure that you want to delete this character?</h4>
-        </div>
-        <div class="modal-body">
-          Deleting a character is permanent and <strong>cannot be undone</strong>.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Don't Delete</button>
-          <button id="confirm-delete-button" type="button" class="btn btn-danger">Delete Character</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
 
-  <!-- Modal -->
-  <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Create Character</h4>
-        </div>
-        <div class="modal-body">
-          <p>Please select the desired information to create your character.</p>
+	<!-- Create Character Modal -->
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <h4 class="text-muted text-center">
+          	Character Progress
+      </h4>
+	  <div class="progress progress-striped active">
+  		<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;">
+    		<span class="sr-only">33% Complete</span>
+  		</div>
+	  </div>	    
+	  <div class="page-header">
+  		<h1 class = "text-primary">Character Creator <small>Choose attributes</small></h1>
+	  </div>
+        <div class="panel panel-primary">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Gender</h3>
+  			</div>
+  			<div class="panel-body">
+       			
+            	<select class="form-control gender">
+              		<option>Select a Gender</option>
+              		<option>Male</option>
+              		<option>Female</option>
+           	 	</select>
+  			</div>
+		</div> 		
+		<div class="panel panel-primary">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Level</h3>
+  			</div>
+  			<div class="panel-body">
+    			<div class="input-group">
+  					<span class="input-group-addon">(1-100)</span>
+  					<input type="text" class="form-control" placeholder="Level 1">
+				</div>
+  			</div>
+		</div>  
+		<div class="panel panel-primary">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Money</h3>
+  			</div>
+  			<div class="panel-body">
+    			<div class="input-group">
+  					<span class="input-group-addon">$</span>
+  					<input type="text" class="form-control" placeholder="0.00">
+				</div>
+  			</div>
+		</div>  			
+		<div class="panel panel-primary">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Name</h3>
+  			</div>
+  			<div class="panel-body">
+    			<div class="input-group">
+  					<span class="input-group-addon"></span>
+  					<input type="text" class="form-control" placeholder="Name">
+				</div>
+  			</div>
+		</div>  
+		<div class="panel panel-primary">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Choose Class</span></button></h3>
+  			</div>
+  			<div class="panel-body">
+  					<div id="carousel-example-generic" class="carousel slide">
+  					<!-- Indicators -->
+ 			 		<ol class="carousel-indicators">
+    					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    					<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  					</ol>
 
-          <select class="form-control">
-            <option>Fighter</option>
-            <option>Wizard</option>
-            <option>Thief</option>
-            <option>Ranger</option>
-            <option>Demon</option>
-          </select>
+  					<!-- Wrapper for slides -->
+  					<div class="carousel-inner">
+    					<div class="item active">
+      						<img src="http://placehold.it/700x500" alt="First Slide">
+      						<div class="carousel-caption"><button type="button" class="btn btn-primary btn-lg">Cleric</button></div>
+    					</div>
+    					<div class="item">
+      						<img src="http://placehold.it/700x500" alt="Second Slide">
+      						<div class="carousel-caption"><button type="button" class="btn btn-primary btn-lg">Fighter</button></div>
+    					</div>
+    					<div class="item">
+      						<img src="http://placehold.it/700x500" alt="Third Slide">
+      						<div class="carousel-caption"><button type="button" class="btn btn-primary btn-lg">Mage</button></div>
+    					</div>
+    					<div class="item">
+      						<img src="http://placehold.it/700x500" alt="Fourth Slide">
+      						<div class="carousel-caption"><button type="button" class="btn btn-primary btn-lg">Rogue</button></div>
+    					</div>
+  					</div>
+
+  					<!-- Controls -->
+  					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    					<span class="icon-prev"></span>
+ 			 		</a>
+  					<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    					<span class="icon-next"></span>
+  					</a>	
+  		</div>
+          </div>
+           <div class="modal-footer">
+           	<button type="button" class="btn btn-default btn-danger btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+            <button id="confirm-create-button" type="button" class="btn btn-success btn-block">Create Character</button>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button id="confirm-delete-button" type="button" class="btn btn-success">Create Character</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//code.jquery.com/jquery.js"></script>
