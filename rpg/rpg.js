@@ -28,7 +28,9 @@ $(function () {
                     .attr({ href: "character.html#" + character.id })
                     .text(character.name);
                 $characterRow.find("td:nth-child(3)").text(character.classType);
-                $characterRow.find("td:nth-child(4)").text(character.gender.substr(0, 1));
+                $characterRow.find("td:nth-child(4)").text(character.gender.substr(0, 1)); 
+                $characterRow.find("td:nth-child(5)").text(character.level);
+                $characterRow.find("td:nth-child(6)").text(character.money);
                 $("#character-table > tbody").append($characterRow);
             });
         }
