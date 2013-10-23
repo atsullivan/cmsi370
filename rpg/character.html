@@ -1,45 +1,195 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Character Page</title>
+    <title>Character Creation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
+   
     <!-- My CSS -->
     <link rel="stylesheet" href="rpg.css">
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <a href="index.html">Back to Main Menu</a>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <!-- Can't draw anything yet, so... -->
-          <img src="http://placehold.it/350x700">
-        </div>
-        <div class="col-md-6">
-          <h2>Name</h2>
+    
+  	<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">GAME TITLE</a>
+  </div>
 
-          <table class="table table-striped">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><a id = "back-to-main-menu" href="home.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+      <li class = "active"><a id="back-to-main-menu" href="index.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+      <li><a id = "back-to-main-menu" href="messages.html"><span class="glyphicon glyphicon-comment"></span>Messages <span class="badge">1</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span>Online <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Ranked Match</a></li>
+          <li><a href="#">Private Match</a></li>
+          <li><a href="#">Co-op</a></li>
+        </ul>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-align-left"></span>Stats</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Info</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Options <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Controls</a></li>
+          <li><a href="#">Volume</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+  
+  
+  
+  
+    <div class="container">
+      <div class="row topOfPage">
+        <div class="col-md-6">
+          <h1>
+            <em>
+              <strong>
+              </strong>
+            </em>
+          </h1>
+          
+          <table class="table table-borderless table-condensed table-hover">
             <thead>
               <tr>
-                <th>Attribute</th>
+                <th>Skill</th>
                 <th>Value</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Strength</td>
-                <td>18</td>
+              <!-- Using "danger" for red, signifying attack skills. -->
+              <tr class="red">
+                <td>Class</td>
+                <td>
+                  <script>
+                    $characterRow.find("td:nth-child(3)").text(character.classType);
+                   <!-- document.write(Math.floor(Math.random()*100)+1); -->
+                  </script>
+                </td>
               </tr>
-              <tr>
-                <td>Dexterity</td>
-                <td>5</td>
+              <tr class="red">
+                <td>Gender</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
               </tr>
-            </tbody>
+              <tr class="red">
+                <td>Level</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              <tr class="red">
+                <td>Money</td>
+                <td>
+                  <script>
+                    document.write(Math.floor(Math.random()*100)+1);
+                  </script>
+                </td>
+              </tr>
+              
+                          </tbody>
           </table>
+        </div>
+        <div class="column-md-6">          
+          <button type="button" class="btn btn-primary btn-lg" data-toggle = "modal" href ="#editItemModal">
+            	<span class="glyphicon glyphicon-edit"></span> Edit
+          </button>
+          <button type="button" data-toggle = "modal" href="#deleteItemModal" class="btn btn-danger btn-lg">
+            	<span class="glyphicon glyphicon-remove"></span> Delete
+          </button>    
+    </div>
+
+    <!-- Edit Item Modal -->
+    <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Item</h4>
+          </div>
+          <div class="modal-body">
+            <label for="Name">Name</label>
+            <input type="Name" class="form-control name" id="name" placeholder="New Name">
+            
+            <label for="Class">Class</label>
+            <input type="Class" class="form-control name" id="class" placeholder="New Class">
+            
+            <label for="Weight">Gender</label>
+            <input type="Gender" class="form-control name" id="gender" placeholder="New Gender">
+            
+            <label for="Level">Level</label>
+            <input type="Level" class="form-control name" id="level" placeholder="New Level">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancel</button>
+            <button id="confirm-edit-item-button" type="button" class="btn btn-success">Confirm</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Delete Item Modal -->
+    <div class="modal fade" id="deleteItemModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Are you sure that you want to delete this item?</h4>
+          </div>
+          <div class="modal-body">
+            Deleting an item is permanent and <strong>cannot be undone</strong>.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Don't Delete</button>
+            <button id="confirm-delete-item-button" type="button" class="btn btn-danger">Delete Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="inventoryHelpModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span> Inventory and Skills Help</h4>
+          </div>
+          <div class="modal-body">
+            <p>Welcome to the Creator's Inventory and Skills page. To <strong>add a new item to the inventory</strong>, click the create item button. After entering in a <em>item name, damage, weight, and value,</em> the item will appear in your current character's inventory.</p>
+            <p>To <strong>edit an item</strong>, select the checkbox and click "Edit Item." This will allow you to change any aspect of the item in case you made a mistake!</p>
+            <p>Tired of having 10 Iron Swords? To <strong>delete an item</strong>, check the box next to their name and click <em>delete</em>. Don't worry, either; <em><strong>we will make sure your item can be deleted only after a confirmation page!</strong></em></p>
+            <p>I hope you enjoy the item and skills creation suite! (And please avoid committing crimes against Skyrim and her people!)</p>
+          </div>
+          <div class="modal-footer">
+            <button id="close-inventory-help-button" type="button" class="btn btn-primary">Thanks!</button>
+          </div>
         </div>
       </div>
     </div>
@@ -49,5 +199,9 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Code specific to my RPG user interface. -->
+    <script src="character.js"></script>
   </body>
 </html>
+
