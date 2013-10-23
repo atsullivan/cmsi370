@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -26,9 +26,9 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+      <li><a id = "back-to-main-menu" href="home.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
       <li class = "active"><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-comment"></span>Messages <span class="badge">6</a></li>
+      <li><a id = "back-to-main-menu" href="messages.html"><span class="glyphicon glyphicon-comment"></span>Messages <span class="badge">1</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span>Online <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -69,7 +69,7 @@
     
     <a id="create-button" data-toggle="modal" href="#createModal"class="btn btn-lg btn-success btn-block">
     	<span class="glyphicon glyphicon-plus">
-    	</span>Create Character
+    	</span> Create New Character
     </a>
 	  
 	  <table id="character-table" class="table table-striped">
@@ -87,46 +87,9 @@
         </thead>
         <tbody>
         </tbody>
-      </table>
-      <!-- -->
-	  
-	  
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	    				
+      </table>			
 		</div> 
       </div>
-        <div class="col-md-4">
-          <div class="row">
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-            	<span class="glyphicon glyphicon-plus"></span> New
-            </button>
-          </div>
-          <div class="row">
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-            	<span class="glyphicon glyphicon-edit"></span> Edit
-            </button>
-          </div>
-          <div class="row">
-            <button type="button" class="btn btn-primary btn-lg btn-block">
-            	<span class="glyphicon glyphicon-floppy-disk"></span> Save
-            </button>
-          </div>
-          <div class="row">
-            <a id="delete-button" href="#" class= "btn btn-lg btn-primary btn-block" data-toggle="popover" data-placement="bottom"
-                data-content="If you delete a character, he or she is gone forever."
-                data-original-title="Deletion Warning"> <span class="glyphicon glyphicon-remove"></span> Delete</a>
-          </div> 
-        </div>
       </div>
 
 
