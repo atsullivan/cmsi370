@@ -73,52 +73,23 @@
             </em>
           </h1>
           
-          <table class="table table-borderless table-condensed table-hover">
+          
+                   
+          
+          <table id ="class-table" table class="table table-borderless table-condensed table-hover">
             <thead>
               <tr>
-                <th>Skill</th>
-                <th>Value</th>
+                <th>Class</th>
+                <th>Gender</th>
+                <th>Level</th>
+                <th>Money</th>
               </tr>
             </thead>
             <tbody>
-              <!-- Using "danger" for red, signifying attack skills. -->
-              <tr class="red">
-                <td>Class</td>
-                <td>
-                  <script>
-                    $characterRow.find("td:nth-child(3)").text(character.classType);
-                   <!-- document.write(Math.floor(Math.random()*100)+1); -->
-                  </script>
-                </td>
-              </tr>
-              <tr class="red">
-                <td>Gender</td>
-                <td>
-                  <script>
-                    document.write(Math.floor(Math.random()*100)+1);
-                  </script>
-                </td>
-              </tr>
-              <tr class="red">
-                <td>Level</td>
-                <td>
-                  <script>
-                    document.write(Math.floor(Math.random()*100)+1);
-                  </script>
-                </td>
-              </tr>
-              <tr class="red">
-                <td>Money</td>
-                <td>
-                  <script>
-                    document.write(Math.floor(Math.random()*100)+1);
-                  </script>
-                </td>
-              </tr>
-              
-                          </tbody>
+           	</tbody>
           </table>
         </div>
+        
         <div class="column-md-6">          
           <button type="button" class="btn btn-primary btn-lg" data-toggle = "modal" href ="#editItemModal">
             	<span class="glyphicon glyphicon-edit"></span> Edit
@@ -204,4 +175,3 @@
     <script src="character.js"></script>
   </body>
 </html>
-
