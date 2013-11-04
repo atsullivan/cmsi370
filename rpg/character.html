@@ -12,6 +12,7 @@
   <body>
     
   	<nav class="navbar navbar-default navbar-inverse" role="navigation">
+      <!-- JD: More bad indentation. -->
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -92,14 +93,19 @@
         
         <div class="column-md-6">          
           <button type="button" class="btn btn-primary btn-lg" data-toggle = "modal" href ="#editItemModal">
+            <!-- JD: Yikes!  Now you're doing 6-space indents! -->
             	<span class="glyphicon glyphicon-edit"></span> Edit
           </button>
           <button type="button" data-toggle = "modal" href="#deleteItemModal" class="btn btn-danger btn-lg">
             	<span class="glyphicon glyphicon-remove"></span> Delete
-          </button>    
+          </button>
+          <!-- JD: The tag below is simply off.  Incorrect indentation is worse
+                   than inconsistently-spaced indentation. -->
     </div>
 
     <!-- Edit Item Modal -->
+    <!-- JD: You say these is "Edit Item," but the content looks like it is for "Edit Character."
+             watch your labels and their consistency! -->
     <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" data-backdrop="static">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -109,10 +115,15 @@
           <div class="modal-body">
             <label for="Name">Name</label>
             <input type="Name" class="form-control name" id="name" placeholder="New Name">
-            
+
+            <!-- JD: From an interaction design perspective, the user interface elements here
+                     should be consistent with your creation interface, no?  You should have
+                     the carousel for the class, the select element for gender, and a 1-100
+                     prompt for level. -->
             <label for="Class">Class</label>
             <input type="Class" class="form-control name" id="class" placeholder="New Class">
-            
+
+            <!-- JD: Oops, bad for attribute in the label below. -->
             <label for="Weight">Gender</label>
             <input type="Gender" class="form-control name" id="gender" placeholder="New Gender">
             
@@ -145,6 +156,7 @@
       </div>
     </div>
 
+    <!-- JD: This appears to be unreachable code. --->
     <div class="modal fade" id="inventoryHelpModal" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">

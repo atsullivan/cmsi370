@@ -12,6 +12,8 @@
   <body>
  
 	<nav class="navbar navbar-default navbar-inverse" role="navigation">
+
+    <!-- JD: The code below should be nested one level deeper. -->
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -26,6 +28,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
+      <!-- JD: Consistency in spacing: no spaces around the equals is suggested. -->
       <li><a id = "back-to-main-menu" href="home.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
       <li class = "active"><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
       <li><a id = "back-to-main-menu" href="messages.html"><span class="glyphicon glyphicon-comment"></span>Messages <span class="badge">1</a></li>
@@ -61,6 +64,8 @@
 	
 	<!--FROM EXAMPLE-->
 	<div class="page-header">
+      <!-- JD: Consistency in indentation: You previously indented 2 spaces apiece;
+               here you shift to 4 spaces.  Pick a convention and stick to it. -->
   		<h1 class = "text-primary">Character Library 
   			<small>
   				Choose to edit
@@ -73,7 +78,7 @@
     </a>
     
    
-          </div>
+          </div> <!-- JD: This looks like an orphan. -->
    
    
 	  
@@ -93,7 +98,7 @@
         <tbody>
         </tbody>
       </table>			
-		</div> 
+		</div> <!-- JD: More orphans: watch your tags! -->
       </div>
       </div>
 
@@ -105,6 +110,7 @@
           <h4 class="text-muted text-center">
           	Character Progress
       </h4>
+      <!-- JD: Progress bar is a neat idea. -->
 	  <div class="progress progress-striped active">
   		<div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;">
     		<span class="sr-only">33% Complete</span>
@@ -120,6 +126,9 @@
   			<div class="panel-body">
        			
             	<select class="form-control gender">
+                  <!-- JD: Your first option actually is not one: only the actual
+                           choices should be inside the select.  Instead, "Select a
+                           Gender" should be a label outside of the select. -->
               		<option>Select a Gender</option>
               		<option>Male</option>
               		<option>Female</option>
@@ -133,6 +142,9 @@
   			<div class="panel-body">
     			<div class="input-group">
   					<span class="input-group-addon">(1-100)</span>
+                    <!-- JD: HTML5 has an input type="number" where you can set the
+                             minimum and maximum (thus letting you enforce the 1-100
+                             range that your text states). -->
   					<input type="text" class="form-control" placeholder="Level 1">
 				</div>
   			</div>
@@ -154,6 +166,9 @@
   			</div>
   			<div class="panel-body">
     			<div class="input-group">
+                  <!-- JD: For this field, the add-on does not actually serve a purpose;
+                           this may be worth changing to just a simple text field (that
+                           is, unless you have a reason which I am not seeing). -->
   					<span class="input-group-addon"></span>
   					<input type="text" class="form-control" placeholder="Name">
 				</div>
@@ -164,7 +179,13 @@
     			<h3 class="panel-title">Choose Class</span></button></h3>
   			</div>
   			<div class="panel-body">
+              <!-- JD: Nice idea, using the carousel for choosing a class.  I imagine
+                       that your vision for this is to show a detailed portrait of the
+                       selected class.  Good call... -->
   					<div id="carousel-example-generic" class="carousel slide">
+                      <!-- JD: ...but not a good ID.  When you are copy-pasting sample code,
+                               make sure to change internal names to match the purpose in
+                               *your* program. -->
   					<!-- Indicators -->
  			 		<ol class="carousel-indicators">
     					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -207,7 +228,7 @@
             <button id="confirm-create-button" type="button" class="btn btn-success btn-block">Create Character</button>
         </div>
 
-
+    <!-- JD: Lacking help screens and random item user interface. -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//code.jquery.com/jquery.js"></script>

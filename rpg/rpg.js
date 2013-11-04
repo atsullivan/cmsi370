@@ -1,5 +1,7 @@
 // Big things have small beginnings...
 $(function () {
+    // JD: This is orphaned code!  Your page no longer has an element
+    //     with id="delete-button".
     $("#delete-button").popover({ placement: 'left' });
     
     var characterRowTemplate = '<tr>' +
@@ -12,12 +14,15 @@ $(function () {
         '</tr>';
 
      $("#confirm-create-button").click(function () {
+        // JD: Ajax not implemented for character creation.
         console.log("Create confirmed!");
         window.location = "character.html#" + $("#createModal input.name").val() +
             "#" + $("#createModal input.level").val() + "#" + $("#createModal select.gender").val() +
             "#" + $("#createModal input.money").val();
     });
-    
+
+    // JD: Nice that you have this, although this is still pretty much
+    //     the example that was done in class.
     $.getJSON(
         "http://lmu-diabolical.appspot.com/characters",
         function (characters) {
