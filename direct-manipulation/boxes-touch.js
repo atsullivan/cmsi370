@@ -113,36 +113,7 @@ var BoxesTouch = {
                     })
                     .width(createWidth)
                     .height(createHeight);
-            }
-    
-		    /*if (touch.target.creatingbox) {
-		    	if (touch.pageX < touch.target.initialX){
-		    		touch.target.creatingbox.offset({
-		    			left: touch.pageX,
-		    		});
-		    		touch.target.creatingbox.width(touch.target.initialX - touch.pageX):
-		    	}
-		    	else{
-		    		touch.target.creatingbox.offset({
-		    			left: touch.target.initialX,
-		    		});
-		    		touch.target.creatingbox.width(touch.pageX - touch.target.initialX);
-		    	}
-		    	if(touch.pageY < touch.target.initialY){
-		    		touch.target.creatingbox.offset({
-		    			top: touch.pageY,
-		    		});
-		    		touch.target.creatingbox.height(touch.target.initialY - touch.pageY);
-		    	}
-		    	else{
-		    		touch.target.creatingbox.offset({
-		    			top: touch.target.intialY,
-		    		});
-		    		touch.target.creatingbox.height(touch.pageY - touch.target.initialY);
-		    	}
-		    }*/
-		    //============================================================================================
-               
+            }           
         });
         
         // Don't do any touch scrolling.
