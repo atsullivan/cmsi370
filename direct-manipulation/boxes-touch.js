@@ -27,7 +27,7 @@ var BoxesTouch = {
     /**
      * Starts a box creation
      */
-    startCreate: function (event) {
+    /*startCreate: function (event) {
     	$.each(event.changedTouches, function (index, touch) {
     		// Sets the initial X and Y coordinates
     		touch.target.initialX = touch.pageX;
@@ -47,9 +47,8 @@ var BoxesTouch = {
    		// Eat up the event so that the drawing area does not
         // deal with it.
    		event.stopPropagation();
-    },
+    },*/
     //============================================================================================
-    
     
     
     
@@ -70,18 +69,12 @@ var BoxesTouch = {
             
 	            // Deletion Warning and Class
 	            if (!((touch.target.movingBox).hasClass("delete-box")) &&
-			            (touch.pageX - touch.target.deltaX > 512 ||
-			            touch.pageY - touch.target.deltaY > 512 ||
-			            touch.pageX - touch.target.deltaX < 0 ||
-			            touch.pageY - touch.target.deltaY < 0))
+			            (touch.pageX - touch.target.deltaX > 512 || touch.pageY - touch.target.deltaY > 512 || touch.pageX - touch.target.deltaX < 0 || touch.pageY - touch.target.deltaY < 0))
 			            {
 			            	(touch.target.movingBox).addClass("delete-box delete-highlight");
 			            }
 		        if (((touch.target.movingBox).hasClass("delete-box")) &&
-		            (touch.pageX - touch.target.deltaX < 512 &&
-		            touch.pageY - touch.target.deltaY < 512 &&
-		            touch.pageX - touch.target.deltaX > 0 &&
-		            touch.pageY - touch.target.deltaY > 0))
+		            (touch.pageX - touch.target.deltaX < 512 && touch.pageY - touch.target.deltaY < 512 && touch.pageX - touch.target.deltaX > 0 && touch.pageY - touch.target.deltaY > 0))
 		            {
 		            	(touch.target.movingBox).removeClass("delete-box delete-highlight");
 		            }
@@ -89,7 +82,7 @@ var BoxesTouch = {
           
             //============================================================================================
             // For creating a box
-		    if (touch.target.creatingbox) {
+		    /*if (touch.target.creatingbox) {
 		    	if (touch.pageX < touch.target.initialX){
 		    		touch.target.creatingbox.offset({
 		    			left: touch.pageX,
@@ -114,7 +107,7 @@ var BoxesTouch = {
 		    		});
 		    		touch.target.creatingbox.height(touch.pageY - touch.target.initialY);
 		    	}
-		    }
+		    }*/
 		    //============================================================================================
 		    
 
