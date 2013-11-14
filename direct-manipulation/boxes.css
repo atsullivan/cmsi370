@@ -1,6 +1,5 @@
 /* Drawing area properties. */
 .drawing-area {
-    cursor: crosshair;
     position: relative;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -9,7 +8,6 @@
 /* Box properties and their variants. */
 .box {
     border: thin solid black;
-    cursor: move;
     position: absolute;
 }
 
@@ -17,4 +15,21 @@
     box-shadow: 0px 0px 6px #88F;
     -moz-box-shadow: 0px 0px 6px #88F;
     -webkit-box-shadow: 0px 0px 6px #88F;
+}
+
+.create-highlight {
+	box-shadow: 0px 0px 6px #0F0;
+    -moz-box-shadow: 0px 0px 6px #0F0;
+    -webkit-box-shadow: 0px 0px 6px #0F0;
+}
+
+.delete-highlight {
+	box-shadow: 0px 0px 60px #F00;
+    -moz-box-shadow: 0px 0px 60px #F00;
+    -webkit-box-shadow: 0px 0px 60px #F00;
+}
+
+.delete-box{
+	border: thick solid red;
+	position: absolute;
 }
