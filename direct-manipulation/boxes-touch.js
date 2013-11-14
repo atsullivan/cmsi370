@@ -20,38 +20,27 @@ var BoxesTouch = {
                 element.addEventListener("touchend", BoxesTouch.unhighlight, false);
             });
     },
-    
-    
-    
-    //============================================================================================
+ 
     /**
      * Starts a box creation
      */
-    /*startCreate: function (event) {
+    startCreate: function (event) {
     	$.each(event.changedTouches, function (index, touch) {
-    		// Sets the initial X and Y coordinates
-    		touch.target.initialX = touch.pageX;
-    		touch.target.initialY = touch.pageY;
-    		
+    		touch.initialX = touch.pageX;
+    		touch.initialY = touch.pageY;
     		// Creates a new box
-    		var newtemp = '<div class="box" style="width: 0px; height: 0px; left:' + touch.pageX + 'px; top:' + touch.pageY + 'px">' + '</div>';
-    		var newbox = newtemp;    		
+    		var newbox = '<div class="box" style="width: 0px; height: 0px; left:' + touch.pageX + 'px; top: ' + touch.pageY + 'px">' + '</div>'; 		
     		$("#drawing-area").append(newbox);
-    		(touch.target.creatingbox) = $( "div div:last-child" );
-    		(touch.target.creatingbox).addClass("create-highlight");
+    		touch.creation = $("div div:last-child");
+    		touch.creation.addClass("creation-highlight");
     		$("#drawing-area").find("div.box").each(function (index, element) {
     			element.addEventListener("touchstart", BoxesTouch.startMove, false);
     			element.addEventListener("touchend", BoxesTouch.unhighlight, false);
     		});
     	});
-   		// Eat up the event so that the drawing area does not
-        // deal with it.
    		event.stopPropagation();
-    },*/
-    //============================================================================================
-    
-    
-    
+    },
+
     /**
      * Tracks a box as it is rubberbanded or moved across the drawing area.
      */
@@ -60,28 +49,72 @@ var BoxesTouch = {
             event.preventDefault();
             // Don't bother if we aren't tracking anything.
             if (touch.target.movingBox) {
+                var boxParent = $(touch.target.movingBox).parent(),
+                    parentWidth = boxParent.width(),
+                    parentHeight = boxParent.height();
+                    parentLeft = boxParent.offset().left,
+                    parentTop = boxParent.offset().top,
+                    parentRight = parentLeft + parentWidth,
+                    parentBottom = parentTop + parentHeight;
+
                 // Reposition the object.
                 touch.target.movingBox.offset({
                     left: touch.pageX - touch.target.deltaX,
                     top: touch.pageY - touch.target.deltaY
                 });
             
-            
 	            // Deletion Warning and Class
-	            if (!((touch.target.movingBox).hasClass("delete-box")) &&
-			            (touch.pageX - touch.target.deltaX > 512 || touch.pageY - touch.target.deltaY > 512 || touch.pageX - touch.target.deltaX < 0 || touch.pageY - touch.target.deltaY < 0))
-			            {
-			            	(touch.target.movingBox).addClass("delete-box delete-highlight");
-			            }
-		        if (((touch.target.movingBox).hasClass("delete-box")) &&
-		            (touch.pageX - touch.target.deltaX < 512 && touch.pageY - touch.target.deltaY < 512 && touch.pageX - touch.target.deltaX > 0 && touch.pageY - touch.target.deltaY > 0))
+	            if (touch.pageX - touch.target.deltaX > parentRight || 
+			        touch.pageY - touch.target.deltaY > parentBottom || 
+			        touch.pageX - touch.target.deltaX < parentLeft || 
+			        touch.pageY - touch.target.deltaY < parentTop)
+                    {
+			            touch.target.movingBox.addClass("delete-box delete-highlight");
+			        }
+		        if (touch.pageX - touch.target.deltaX <= parentRight && 
+		            touch.pageY - touch.target.deltaY <= parentBottom && 
+		            touch.pageX - touch.target.deltaX >= parentLeft && 
+		            touch.pageY - touch.target.deltaY >= parentTop)
 		            {
-		            	(touch.target.movingBox).removeClass("delete-box delete-highlight");
+		                touch.target.movingBox.removeClass("delete-box delete-highlight");
 		            }
             }
           
-            //============================================================================================
             // For creating a box
+		    if (touch.creation) {
+                var createLeft, createTop, createWidth, createHeight;
+
+                if (touch.pageX < touch.initialX) {
+                    createLeft = touch.pageX;
+                    createWidth = touch.initialX - touch.pageX;
+                    if (touch.pageY < touch.initialY) {
+                        createTop = touch.pageY;
+                        createHeight = touch.initialY - touch.pageY;
+                    } else {
+                        createTop = touch.initialY;
+                        createHeight = touch.pageY - touch.initialY;
+                    }
+                } else {
+                    createLeft = touch.initialX;
+                    createWidth = touch.pageX - touch.initialX;
+                    if (touch.pageY < touch.initialY) {
+                        createTop = touch.pageY;
+                        createHeight = touch.initialY - touch.pageY;
+                    } else {
+                        createTop = touch.initialY;
+                        createHeight = touch.pageY - touch.initialY;
+                    }
+                }
+
+            touch.creation
+                    .offset({
+                        left: createLeft,
+                        top: createTop
+                    })
+                    .width(createWidth)
+                    .height(createHeight);
+            }
+    
 		    /*if (touch.target.creatingbox) {
 		    	if (touch.pageX < touch.target.initialX){
 		    		touch.target.creatingbox.offset({
@@ -109,10 +142,7 @@ var BoxesTouch = {
 		    	}
 		    }*/
 		    //============================================================================================
-		    
-
-            
-	                 
+               
         });
         
         // Don't do any touch scrolling.
@@ -129,14 +159,10 @@ var BoxesTouch = {
                 // touch.target.movingBox.
                 touch.target.movingBox = null;
             }
-            
-            //============================================================================================
             if (touch.target.creatingbox) {
-            	touch.target.creatingbox.removalClass("create-highlight");
-            	touch.target.creatingbox = null;
+            	touch.creation.removalClass("create-highlight");
+            	touch.creation = null;
             }
-            //============================================================================================
-            
         });
     },
 
