@@ -10,6 +10,7 @@ var BoxesTouch = {
             // Event handler setup must be low-level because jQuery
             // doesn't relay touch-specific event properties.
             .each(function (index, element) {
+                element.addEventListener("touchstart", BoxesTouch.startCreate, false);
                 element.addEventListener("touchmove", BoxesTouch.trackDrag, false);
                 element.addEventListener("touchend", BoxesTouch.endDrag, false);
             })
@@ -34,10 +35,7 @@ var BoxesTouch = {
     		
     		// Creates a new box
     		var newtemp = '<div class="box" style="width: 0px; height: 0px; left:' + touch.pageX + 'px; top:' + touch.pageY + 'px">' + '</div>';
-    		var newbox = newtemp;
-    		
-    		var newbox = '<div class="box" style="width: 20px; height: 20px; left: 50px; top: 50px"> </div>';
-    		
+    		var newbox = newtemp;    		
     		$("#drawing-area").append(newbox);
     		(touch.target.creatingbox) = $( "div div:last-child" );
     		(touch.target.creatingbox).addClass("create-highlight");
@@ -60,6 +58,7 @@ var BoxesTouch = {
      */
     trackDrag: function (event) {
         $.each(event.changedTouches, function (index, touch) {
+            event.preventDefault();
             // Don't bother if we aren't tracking anything.
             if (touch.target.movingBox) {
                 // Reposition the object.
@@ -87,10 +86,8 @@ var BoxesTouch = {
 		            	(touch.target.movingBox).removeClass("delete-box delete-highlight");
 		            }
             }
-            
-            
-            
-            /*
+          
+            //============================================================================================
             // For creating a box
 		    if (touch.target.creatingbox) {
 		    	if (touch.pageX < touch.target.initialX){
@@ -118,7 +115,8 @@ var BoxesTouch = {
 		    		touch.target.creatingbox.height(touch.pageY - touch.target.initialY);
 		    	}
 		    }
-		    */
+		    //============================================================================================
+		    
 
             
 	                 
