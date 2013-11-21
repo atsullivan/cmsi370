@@ -4,17 +4,43 @@
 
   This plugin's options object can include:
 
+    values: {
+        front: "front value",
+        back: "back value"
+    }
+    - An object with the given properties indicating the text to display
+      on the "front" and "back" of the widget.
+
     change: function () { }
     - Callback for whenever the control has been manipulated.
+
+   For example:
+   
+   $(selector).twoStateWidget({
+       values: {
+           front: "male",
+           back: "female"
+       },
+
+       change: function () {
+       }
+   });
 */
 (function ($) {
     // Private plugin helpers.
     $.fn.twoStateSwivel = function (options) {
         var $this = this,
             $current = null,
-            anchorX = 0;
+            anchorX = 0,
+            front = options.values ?
+                (options.values.front || "front") :
+                "front",
+            back = options.values ?
+                (options.values.back || "back") :
+                "back";
 
         $this.addClass("two-state-swivel")
+            .text(front)
             .mousedown(function (event) {
                 $current = $(this);
                 anchorX = event.screenX - ($current.data('swivel-angle') || 0);
