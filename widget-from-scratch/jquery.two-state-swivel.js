@@ -28,6 +28,16 @@
 */
 (function ($) {
     // Private plugin helpers.
+    var setSwivelValues = function ($element, angle) {
+            var newCss = "perspective(500px) rotateY(" + angle + "deg)";
+            $element.css({
+                '-moz-transform': newCss,
+                '-webkit-transform': newCss
+            }).data({
+                'swivel-angle': angle
+            });
+        };
+
     $.fn.twoStateSwivel = function (options) {
         var $this = this,
             $current = null,
@@ -52,15 +62,9 @@
             .mousemove(function (event) {
                 if ($current) {
                     var currentAngle = $current.data('swivel-angle') || 0,
-                        newAngle = event.screenX - anchorX,
-                        newCss = "perspective(500px) rotateY(" + newAngle + "deg)";
+                        newAngle = event.screenX - anchorX;
 
-                    $current.css({
-                        '-moz-transform': newCss,
-                        '-webkit-transform': newCss
-                    }).data({
-                        'swivel-angle': newAngle
-                    });
+                    setSwivelValues($current, newAngle);
 
                     var clippedAngle = Math.abs(newAngle % 360);
                     $current.text(clippedAngle < 270 && clippedAngle > 90 ? back : front);
@@ -73,26 +77,8 @@
             })
             .mouseup(function (event) {
                 if ($current) {
-                    var currentAngle = $current.data('swivel-angle') || 0,
-                        clippedAngle = Math.abs(currentAngle % 360),
-                        newCss,
-                        newAngle;
-
-                    if (clippedAngle < 270 && clippedAngle > 90) {
-                        // Snap to the back.
-                        newAngle = -180;
-                    } else {
-                        // Snap to the front.
-                        newAngle = 0;
-                    }
-
-                    newCss = "perspective(500px) rotateY(" + newAngle + "deg)";
-                    $current.css({
-                        '-moz-transform': newCss,
-                        '-webkit-transform': newCss
-                    }).data({
-                        'swivel-angle': newAngle
-                    });
+                    var clippedAngle = Math.abs(($current.data('swivel-angle') || 0) % 360);
+                    setSwivelValues($current, (clippedAngle < 270 && clippedAngle > 90) ? -180 : 0);
                 }
 
                 $current = null;
