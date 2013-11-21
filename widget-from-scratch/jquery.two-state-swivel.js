@@ -72,6 +72,29 @@
                 }
             })
             .mouseup(function (event) {
+                if ($current) {
+                    var currentAngle = $current.data('swivel-angle') || 0,
+                        clippedAngle = Math.abs(currentAngle % 360),
+                        newCss,
+                        newAngle;
+
+                    if (clippedAngle < 270 && clippedAngle > 90) {
+                        // Snap to the back.
+                        newAngle = -180;
+                    } else {
+                        // Snap to the front.
+                        newAngle = 0;
+                    }
+
+                    newCss = "perspective(500px) rotateY(" + newAngle + "deg)";
+                    $current.css({
+                        '-moz-transform': newCss,
+                        '-webkit-transform': newCss
+                    }).data({
+                        'swivel-angle': newAngle
+                    });
+                }
+
                 $current = null;
             });
     };
