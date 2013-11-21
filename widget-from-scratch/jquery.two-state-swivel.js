@@ -62,6 +62,9 @@
                         'swivel-angle': newAngle
                     });
 
+                    var clippedAngle = Math.abs(newAngle % 360);
+                    $current.text(clippedAngle < 270 && clippedAngle > 90 ? back : front);
+
                     // Invoke the callback.
                     if ($.isFunction(options.change)) {
                         options.change.call($current, currentAngle, newAngle);
