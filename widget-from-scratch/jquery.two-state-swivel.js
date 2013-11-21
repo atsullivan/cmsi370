@@ -29,7 +29,7 @@
 (function ($) {
     // Private plugin helpers.
     var setSwivelValues = function ($element, angle) {
-            var newCss = "perspective(500px) rotateY(" + angle + "deg)";
+            var newCss = "rotate(180deg) perspective(500px) rotateY(" + angle + "deg)";
             $element.css({
                 '-moz-transform': newCss,
                 '-webkit-transform': newCss
