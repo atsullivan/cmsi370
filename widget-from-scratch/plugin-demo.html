@@ -1,0 +1,41 @@
+<!doctype html>
+
+<!-- A demonstration page for some hand-rolled jQuery plugins. -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery Plugin Demos</title>
+
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <!-- Sometimes, a plugin needs "companion" CSS.  That is fine. -->
+    <link rel="stylesheet" href="jquery.two-state-swivel.css">
+
+    <!-- And the page has its own styles. -->
+    <link rel="stylesheet" href="plugin-demo.css">
+  </head>
+    
+  <body>
+    <div class="container">
+      <h1>“Swivel” Control</h1>
+
+      <p>This plugin demonstrates low-level mouse event handling.  We leave what it controls or
+      how it is used to your imagination.</p>
+
+      <p><div class="swivel-this">&nbsp;</div></p>
+
+      <p><div class="swivel-this">And it's just a <code>div</code></div></p>
+
+      <p><div class="swivel-this">So you can put text inside</div></p>
+    </div>
+
+    <!-- We wrap up by loading up jQuery, then Bootstrap, then our plugins,
+         then finally we actually use them. -->
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="jquery.two-state-swivel.js"></script>
+
+    <script src="plugin-demo.js"></script>
+  </body>
+</html>
