@@ -1,5 +1,17 @@
 // Big things have small beginnings...
 $(function () {
+    $(".swivel-this.sex").twoStateSwivel({
+        values: {
+            front: "female",
+            back: "male"
+        },
+
+        change: function (oldAngle, newAngle) {
+            console.log("Swiveled from " + oldAngle + " to " + newAngle);
+        }
+    });
+
+$(function () {
     // JD: This is orphaned code!  Your page no longer has an element
     //     with id="delete-button".
     $("#delete-button").popover({ placement: 'left' });
