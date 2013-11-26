@@ -4,7 +4,16 @@
     <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+       <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+    
+     <!-- Sometimes, a plugin needs "companion" CSS.  That is fine. -->
+    <link rel="stylesheet" href="jquery.two-state-swivel.css">
+
+    <!-- And the page has its own styles. -->
+    <link rel="stylesheet" href="plugin-demo.css">
+
 
     <!-- My CSS -->
     <link rel="stylesheet" href="rpg.css">
@@ -119,6 +128,27 @@
 	  <div class="page-header">
   		<h1 class = "text-primary">Character Creator <small>Choose attributes</small></h1>
 	  </div>
+        
+        
+         <!------------------------------------------>
+      <div class="container">
+      <p><div class="swivel-this sex">&nbsp;</div></p>
+
+      <p><div class="swivel-this switch">And it's just a <code>div</code></div></p>
+
+      <p><div class="swivel-this yesno">So you can put text inside</div></p>
+    </div>
+
+    <!-- We wrap up by loading up jQuery, then Bootstrap, then our plugins,
+         then finally we actually use them. -->
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="jquery.two-state-swivel.js"></script>
+
+    <script src="plugin-demo.js"></script>
+
+        
+        <!------------------------------------------
         <div class="panel panel-primary">
   			<div class="panel-heading">
     			<h3 class="panel-title">Gender</h3>
@@ -129,12 +159,13 @@
                   <!-- JD: Your first option actually is not one: only the actual
                            choices should be inside the select.  Instead, "Select a
                            Gender" should be a label outside of the select. -->
-              		<option>Select a Gender</option>
+              		<!--  <option>Select a Gender</option>
               		<option>Male</option>
               		<option>Female</option>
            	 	</select>
   			</div>
-		</div> 		
+		</div> 	
+		------------------------------------------>	
 		<div class="panel panel-primary">
   			<div class="panel-heading">
     			<h3 class="panel-title">Level</h3>
