@@ -29,9 +29,30 @@ var BoxesTouch = {
     		touch.initialX = touch.pageX;
     		touch.initialY = touch.pageY;
     		// Creates a new box
-    		var newbox = '<div class="box" style="width: 0px; height: 0px; left:' + touch.pageX + 'px; top: ' + touch.pageY + 'px">' + '</div>'; 		
+            // JD: Alternatively, you can define this "template" as a standalone
+            //     string at the top, then set its attributes via jQuery, e.g.:
+            //
+            //     ...
+            //     TEMP_BOX_TEMPLATE: '<div class="box"></div>';
+            //
+            //     ...
+            //
+            //     var tempBox = $(BoxesTouch.TEMP_BOX_TEMPLATE).css({
+            //         width: "0px",
+            //         height: "0px",
+            //         left: touch.pageX + "px",
+            //         top: touch.pageY + "px"
+            //     });
+            //
+            //     ...
+            //
+            //     You may find this approach to be a little more readable and
+            //     less error-prone.
+            //
+    		var newbox = '<div class="box" style="width: 0px; height: 0px; left:' + touch.pageX + 'px; top: ' + touch.pageY + 'px">' + '</div>';
     		$("#drawing-area").append(newbox);
     		touch.creation = $("div div:last-child");
+            // JD: Note, your CSS does not have a selector for .creation-highlight.
     		touch.creation.addClass("creation-highlight");
     		$("#drawing-area").find("div.box").each(function (index, element) {
     			element.addEventListener("touchstart", BoxesTouch.startMove, false);
@@ -64,11 +85,14 @@ var BoxesTouch = {
                 });
             
 	            // Deletion Warning and Class
+                // JD: Unhardcoded drawing area bounds duly noted.  Good job!
 	            if (touch.pageX - touch.target.deltaX > parentRight || 
 			        touch.pageY - touch.target.deltaY > parentBottom || 
 			        touch.pageX - touch.target.deltaX < parentLeft || 
 			        touch.pageY - touch.target.deltaY < parentTop)
-                    {
+                    { // JD: Even with a multiline if condition I would stick the
+                      //     opening { on the prior line.  This lets your preserve
+                      //     the single-level indenting.
 			            touch.target.movingBox.addClass("delete-box delete-highlight");
 			        }
 		        if (touch.pageX - touch.target.deltaX <= parentRight && 
@@ -81,6 +105,15 @@ var BoxesTouch = {
             }
           
             // For creating a box
+            // JD: As you probably noticed, in principle this approach initially works.
+            //     However, eventually the box "stops" rubberbanding.  The reason is that
+            //     custom properties assigned to the touch object, like creation...well,
+            //     mainly creation...are fragile.  The web browser sometimes clears out
+            //     these custom properties.
+            //
+            //     Thus, to get this going 100%, you need a different mechanism for
+            //     associating a touch with the created box that it is rubberbanding.
+            //     Hint: All touch objects have a guaranteed-unique and stable identifier.
 		    if (touch.creation) {
                 var createLeft, createTop, createWidth, createHeight;
 
@@ -106,6 +139,7 @@ var BoxesTouch = {
                     }
                 }
 
+                // JD: This still needs to be indented.
             touch.creation
                     .offset({
                         left: createLeft,
@@ -131,6 +165,7 @@ var BoxesTouch = {
                 touch.target.movingBox = null;
             }
             if (touch.target.creatingbox) {
+                // JD: The function is called removeClass, not removalClass.
             	touch.creation.removalClass("create-highlight");
             	touch.creation = null;
             }
@@ -146,6 +181,7 @@ var BoxesTouch = {
         if ($(this).hasClass("delete-box")){
         	$(this).remove();
         }
+        // JD: Why is this here?  Copy-paste artifact...?
         $(this).removeClass("box-highlight");
     },
 
