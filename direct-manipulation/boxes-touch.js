@@ -37,7 +37,7 @@ var BoxesTouch = {
             //
             //     ...
             //
-            //     var tempBox = $(BoxesTouch.TEMP_BOX_TEMPLATE).css({
+            //     var newbox = $(BoxesTouch.TEMP_BOX_TEMPLATE).css({
             //         width: "0px",
             //         height: "0px",
             //         left: touch.pageX + "px",
@@ -50,6 +50,7 @@ var BoxesTouch = {
             //     less error-prone.
             //
     		var newbox = '<div class="box" style="width: 0px; height: 0px; left:' + touch.pageX + 'px; top: ' + touch.pageY + 'px">' + '</div>';
+            // JD: Ack---you hardcoded #drawing-area!
     		$("#drawing-area").append(newbox);
     		touch.creation = $("div div:last-child");
             // JD: Note, your CSS does not have a selector for .creation-highlight.
