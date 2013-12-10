@@ -29,6 +29,12 @@
 (function ($) {
     // Private plugin helpers.
     var setSwivelValues = function ($element, angle) {
+            // JD: Oops, some inconsistency here due to duplication of code!
+            //     What you should have done was try to fix this in the demo
+            //     page, then copy the version over only when it was done.
+            //     Or, if it was somehow easier to test this change in the
+            //     RPG app (though I don't think so), at least remember to
+            //     transfer your tweaks to the "master" version.
            // var newCss = "rotateX(360deg) perspective(500px)";
             var newCss = "rotate(360deg) perspective(500px) rotateY(" + angle + "deg)";
             $element.css({

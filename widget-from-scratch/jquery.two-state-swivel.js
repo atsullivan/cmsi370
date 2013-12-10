@@ -1,3 +1,9 @@
+// JD: Well, I really can't say much about this code, can I, *because it's
+//     exactly where I left it!*  I hope you remembered that the plugin was
+//     not completely finished: there was that upside-down/rightside-up bug
+//     which I wasn't able to clean up, and you probably realized when
+//     integrating this into your RPG web app that it would be nice to set
+//     the value of the widget programmatically.
 /*
   A sample jQuery plug-in: this one converts the selected elements into a 3D
   “swivel” control.
@@ -29,6 +35,8 @@
 (function ($) {
     // Private plugin helpers.
     var setSwivelValues = function ($element, angle) {
+            // JD: This function definitely needs that adjustment to accommodate
+            //     the text orientation issue.
             var newCss = "rotate(180deg) perspective(500px) rotateY(" + angle + "deg)";
             $element.css({
                 '-moz-transform': newCss,
@@ -79,6 +87,8 @@
                 if ($current) {
                     var clippedAngle = Math.abs(($current.data('swivel-angle') || 0) % 360);
                     setSwivelValues($current, (clippedAngle < 270 && clippedAngle > 90) ? -180 : 0);
+                    // JD: Note also that you want to invoke the callback here too,
+                    //     because the value likely "snapped" to 0 or -180.
                 }
 
                 $current = null;

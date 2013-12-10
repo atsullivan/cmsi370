@@ -1,5 +1,9 @@
 // Big things have small beginnings...
 $(function () {
+    // JD: Nice initial integration here, but this is only the first
+    //     step.  Note that you also need to set its initial value
+    //     (something that remains unimplemented), plus in your
+    //     callback, you could have set the new gender value.
     $(".swivel-this.sex").twoStateSwivel({
         values: {
             front: "female",
